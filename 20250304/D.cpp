@@ -5,5 +5,11 @@ using ll = long long;
 using P = pair<int,int>;
 
 int main(void){
-
+    int l, r;
+    cin >> l >> r;
+    string s;
+    cin >> s;
+    reverse(s.begin()+l-1, s.begin()+r);
+    cout << s << endl;
+    return 0;
 }

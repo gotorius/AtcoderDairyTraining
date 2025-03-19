@@ -27,20 +27,23 @@ int main(void){
         mscore = max(mscore, score[i]);
     }
 
-    sort(a.rbegin(), a.rend());
 
     rep(i,n){
         if(score[i] == mscore){
             cout << 0 << endl;
         }else{
-            int cnt = score[i];
+            vector<int> order;
             rep(j,m){
-                if(s[i][mp[a[j]]] == 'x'){
-                    cnt += a[j];
-                }
-
+                if(s[i][j] == 'x') order.push_back(a[j]);
+            }
+            sort(order.rbegin(), order.rend());
+            int cnt = score[i];
+            int ans = 0;
+            for(auto p : order){
+                cnt += p;
+                ans++;
                 if(cnt > mscore){
-                    cout << j+1 << endl;
+                    cout << ans << endl;
                     break;
                 }
             }
